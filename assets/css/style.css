@@ -6,6 +6,7 @@
   --accent:#2A56D6;
   --accent-dark:#1B3FA8;
   --accent-tint:#EAF0FE;
+  --frost:#8FD8FF;
   --muted:#6B7280;
   --line:#E7E7E4;
   --radius-lg:28px;
@@ -630,6 +631,26 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .network-pin.is-live .p-dot{background:#F5A623;box-shadow:0 0 0 5px rgba(245,166,35,.25)}
 .presence-city-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .presence-city-list .city-chip{padding:8px 16px;border-radius:9999px;background:var(--panel-light);font-size:12.5px;font-weight:600;color:var(--ink)}
+
+/* ================= SECTION-GLOW (radial ice-blue tint, white ground) ================= */
+.section-glow{
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(640px 360px at 8% -10%, rgba(42,86,214,.12), transparent 60%),
+    radial-gradient(520px 400px at 100% 20%, rgba(143,216,255,.18), transparent 65%);
+}
+
+/* ================= NAVY-BAND (generic dark full-bleed band) ================= */
+.navy-band{background:var(--panel-dark);color:#fff}
+.navy-band .eyebrow{color:#8FB0FF}
+.navy-band h1,.navy-band h2,.navy-band h3,.navy-band h4{color:#fff}
+.navy-band p{color:rgba(255,255,255,.72)}
+.navy-band .text-link{color:#fff}
+.navy-band .btn-black{background:#fff;color:var(--ink)}
+.navy-band .btn-black:hover{background:var(--accent-tint);color:var(--ink)}
+.navy-band .stats-strip{border-top-color:rgba(255,255,255,.18)}
+.navy-band .stats-strip strong{color:var(--frost)}
+.navy-band .stats-strip span{color:rgba(255,255,255,.62)}
 
 /* ================= TESTIMONIALS GRID (dedicated page) ================= */
 .testimonials-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
