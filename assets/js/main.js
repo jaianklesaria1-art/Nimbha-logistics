@@ -56,6 +56,53 @@
     update();
   }
 
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var btn = dd.querySelector('button');
+    if (!btn) return;
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var willOpen = !dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){ o.classList.remove('open'); });
+      if (willOpen) dd.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+
+  var presenceTabs = document.querySelectorAll('.presence-tab');
+  if (presenceTabs.length){
+    var pins = document.querySelectorAll('.network-pin');
+    var cityList = document.getElementById('presenceCityList');
+    var allCities = {};
+    pins.forEach(function(pin){
+      var region = pin.getAttribute('data-region');
+      var city = pin.querySelector('span') ? pin.querySelector('span').textContent : '';
+      if (!allCities[region]) allCities[region] = [];
+      allCities[region].push(city);
+    });
+    function renderCities(region){
+      if (!cityList) return;
+      var cities = region === 'all' ? Object.keys(allCities).reduce(function(acc,k){ return acc.concat(allCities[k]); }, []) : (allCities[region] || []);
+      cityList.innerHTML = cities.map(function(c){ return '<span class="city-chip">' + c + '</span>'; }).join('');
+    }
+    presenceTabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        presenceTabs.forEach(function(t){ t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+        var region = tab.getAttribute('data-region');
+        pins.forEach(function(pin){
+          var pinRegion = pin.getAttribute('data-region');
+          var match = region === 'all' || pinRegion === region;
+          pin.classList.toggle('is-dim', !match);
+          pin.classList.toggle('is-live', match && region !== 'all');
+        });
+        renderCities(region);
+      });
+    });
+    renderCities('all');
+  }
+
   var slider = document.getElementById('heroSlider');
   if (slider){
     var slides = slider.querySelectorAll('.hero-slide');
