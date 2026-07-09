@@ -636,8 +636,9 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .section-glow{
   background-color:var(--paper);
   background-image:
-    radial-gradient(640px 360px at 8% -10%, rgba(42,86,214,.12), transparent 60%),
-    radial-gradient(520px 400px at 100% 20%, rgba(143,216,255,.18), transparent 65%);
+    radial-gradient(720px 440px at 6% -12%, rgba(42,86,214,.28), transparent 62%),
+    radial-gradient(600px 480px at 102% 18%, rgba(143,216,255,.38), transparent 68%),
+    radial-gradient(500px 360px at 30% 115%, rgba(42,86,214,.16), transparent 60%);
 }
 
 /* ================= NAVY-BAND (generic dark full-bleed band) ================= */
