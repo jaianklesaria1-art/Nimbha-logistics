@@ -20,14 +20,20 @@ assets/
 ```
 
 ## Hero video
-`assets/video/hero-bridge-truck.mp4` is excluded from this repo via `.gitignore` — at
-138MB it exceeds GitHub's 100MB per-file push limit and is too large to serve raw
-from a git-based host anyway. Before deploying:
+`assets/video/hero-bridge-truck.mp4` was delivered as a 138MB 4K master (3840x2160,
+45Mbps, with audio). That's committed to git (GitHub rejects anything over 100MB) and
+far too heavy to serve as a background video on any host. It's been re-encoded to
+1080p H.264, audio stripped (it only ever plays muted), `crf 26`, with `+faststart`
+for progressive playback:
 
-1. Compress it (e.g. `ffmpeg -i hero-bridge-truck.mp4 -vcodec libx264 -crf 28 -vf scale=1920:-2 hero-bridge-truck.mp4`) to a web-friendly size, or
-2. Host it on a CDN (Cloudinary, Bunny, S3 + CloudFront, etc.) and update the `<source>` URLs in `index.html`, `fleet.html`, and `solutions.html`.
+```
+ffmpeg -i hero-bridge-truck.mp4 -vf "scale=1920:-2" -c:v libx264 -crf 26 -preset medium -an -movflags +faststart hero-bridge-truck.mp4
+```
 
-It's referenced in three places:
+Result: 138MB → 26MB. If the original 4K master is needed again, ask for it —
+it isn't kept in this repo.
+
+Referenced in:
 - `index.html` — hero slider, slide 1
 - `index.html` — Fleet Strength section
 - `fleet.html` — Fleet Overview section
