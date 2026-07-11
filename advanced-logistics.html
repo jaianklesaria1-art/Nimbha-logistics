@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Solutions — NiBha Logistics</title>
-<meta name="description" content="Temperature controlled transportation, frozen &amp; chilled handling, multi-city distribution, real-time tracking, hatching egg logistics, and customized cold chain solutions across India.">
+<title>Advanced Logistics — NiBha Logistics</title>
+<meta name="description" content="Temperature controlled transportation, frozen &amp; chilled handling, multi-city distribution, hatching egg logistics, and customized cold chain solutions across India.">
 <link rel="icon" href="assets/img/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,12 +19,17 @@
   <div class="nav-inner">
     <a href="index.html" class="brand" aria-label="NiBha Logistics home">
       <img src="assets/img/logo.webp" alt="NiBha Logistics">
-      <span>NiBha</span>
     </a>
     <nav class="primary" aria-label="Primary">
       <ul>
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="solutions.html" class="nav-link active">Solutions</a></li>
+        <li class="nav-dropdown open">
+          <button type="button" aria-haspopup="true" aria-expanded="true">Solutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown-panel">
+            <a href="advanced-logistics.html" style="color:var(--accent)">Advanced Logistics</a>
+            <a href="technology-section.html">Technology Section</a>
+          </div>
+        </li>
         <li><a href="fleet.html" class="nav-link">Fleet</a></li>
         <li class="nav-dropdown">
           <button type="button" aria-haspopup="true" aria-expanded="false">More<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -36,7 +41,6 @@
             <a href="testimonials.html">Client Testimonials</a>
           </div>
         </li>
-        <li><a href="careers.html" class="nav-link">Careers</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
@@ -51,7 +55,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="solutions.html">Solutions</a></li>
+      <li><span class="more-label">Solutions</span></li>
+      <li><a href="advanced-logistics.html">Advanced Logistics</a></li>
+      <li><a href="technology-section.html">Technology Section</a></li>
       <li><a href="fleet.html">Fleet</a></li>
       <li><span class="more-label">More</span></li>
       <li><a href="about.html">About Us</a></li>
@@ -59,7 +65,6 @@
       <li><a href="key-differences.html">Key Differences</a></li>
       <li><a href="our-presence.html">Our Presence</a></li>
       <li><a href="testimonials.html">Client Testimonials</a></li>
-      <li><a href="careers.html">Careers</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="btn btn-black">Get In Touch</a>
@@ -71,7 +76,7 @@
   <div class="page-hero">
     <img src="assets/img/hero-2.webp" alt="NiBha Logistics truck in transit" loading="lazy">
     <div class="page-hero-inner">
-      <span class="eyebrow">Our Solutions</span>
+      <span class="eyebrow">Advanced Logistics</span>
       <h1>Comprehensive Cold Chain Solutions Tailored To Your Needs</h1>
       <p>From specialized pharmaceutical transport to high-volume food distribution, NiBha Logistics delivers end-to-end cold chain solutions designed for safety, reliability, and efficiency.</p>
     </div>
@@ -110,11 +115,6 @@
       <span class="tag-chip">Chocolates &amp; Confectionery</span>
       <span class="tag-chip">Any Temperature-Sensitive Cargo</span>
     </div>
-    <div class="solution-video">
-      <video controls muted loop playsinline poster="assets/img/truck-1.jpeg">
-        <source src="assets/video/hero-bridge-truck.mp4" type="video/mp4">
-      </video>
-    </div>
   </div>
 
   <!-- ============================================================ 02 FROZEN & CHILLED PRODUCT HANDLING ============================================================ -->
@@ -128,7 +128,7 @@
     <div class="sub-points-grid">
       <div class="sub-point"><span class="sp-num">1</span><h4>Deep-Freeze Capability</h4><p>Our refrigeration systems maintain &minus;25&deg;C and below, suitable for frozen foods, ice cream, frozen seafood, and frozen meat.</p></div>
       <div class="sub-point"><span class="sp-num">2</span><h4>Rapid Loading Protocols</h4><p>Trained teams execute quick loading procedures that minimize temperature exposure using pre-cooled containers and efficient workflows.</p></div>
-      <div class="sub-point"><span class="sp-num">3</span><h4>Volume Capacity</h4><p>Our 32ft vehicles transport up to 960 ice cream crates, with various vehicle sizes accommodating different volume requirements.</p></div>
+      <div class="sub-point"><span class="sp-num">3</span><h4>Volume Capacity</h4><p>Our 32ft vehicles transport up to 22 MT payload, with various vehicle sizes accommodating different volume requirements.</p></div>
     </div>
     <h3 class="sub-group-label">Chilled Product Handling (0&deg;C To +8&deg;C)</h3>
     <div class="sub-points-grid">
@@ -161,50 +161,29 @@
       <div class="sub-point"><span class="sp-num">3</span><h4>Multi-Stop Deliveries</h4><p>Our system supports multi-stop deliveries, coordinating loading sequences for maximum efficiency.</p></div>
       <div class="sub-point"><span class="sp-num">4</span><h4>Regional Warehouse Integration</h4><p>Seamless integration with regional warehouses enables efficient distribution for businesses of all sizes.</p></div>
     </div>
-    <div class="solution-video">
-      <video controls muted loop playsinline poster="assets/img/hero-4.webp">
-        <source src="assets/video/hero-bridge-truck.mp4" type="video/mp4">
-      </video>
-    </div>
   </div>
 
-  <!-- ============================================================ 04 REAL-TIME TRACKING & MONITORING ============================================================ -->
+  <!-- ============================================================ 04 SPECIALIZED HATCHING EGG LOGISTICS ============================================================ -->
   <div class="solution-detail reveal">
     <div class="solution-detail-head">
       <span class="num-badge">04</span>
-      <h2>Complete Visibility, Start To Finish</h2>
-      <p>We provide complete visibility throughout the transportation cycle with advanced real-time tracking and monitoring. Our vehicles are equipped with live GPS tracking, temperature data logging systems, and automated alerts that instantly notify of any deviation. Clients also have access to a dedicated customer portal and mobile app integration, enabling them to monitor shipments, temperature status, and route updates anytime, anywhere.</p>
-    </div>
-    <div class="applicable-tags">
-      <span class="tag-chip">Live GPS Tracking</span>
-      <span class="tag-chip">Temperature Data Logging</span>
-      <span class="tag-chip">Automated Deviation Alerts</span>
-      <span class="tag-chip">Customer Portal Access</span>
-      <span class="tag-chip">Mobile App Integration</span>
-    </div>
-  </div>
-
-  <!-- ============================================================ 05 SPECIALIZED HATCHING EGG LOGISTICS ============================================================ -->
-  <div class="solution-detail reveal">
-    <div class="solution-detail-head">
-      <span class="num-badge">05</span>
       <h2>Engineered For Fragile, Fertilized Cargo</h2>
-      <p>Our hatching egg logistics service is engineered specifically for the safe movement of fragile fertilized eggs. Vehicles are equipped with vibration-dampening suspension systems and maintain precise temperature control between 18&ndash;20&deg;C. Our trained drivers follow gentle handling protocols, ensuring minimal shock and stress to the eggs. With a dedicated fleet capable of transporting up to 750 boxes per vehicle, we provide reliable, specialized support for hatcheries and breeders.</p>
+      <p>Our hatching egg logistics service is engineered specifically for the safe movement of fragile fertilized eggs. Vehicles are equipped with vibration-dampening suspension systems and maintain precise temperature control between 18&ndash;20&deg;C. Our trained drivers follow gentle handling protocols, ensuring minimal shock and stress to the eggs.</p>
     </div>
     <div class="applicable-tags">
       <span class="tag-chip">Vibration-Dampening Suspension</span>
       <span class="tag-chip">18&ndash;20&deg;C Precision Control</span>
       <span class="tag-chip">Gentle Handling Protocols</span>
-      <span class="tag-chip">Up To 750 Boxes Per Vehicle</span>
+      <span class="tag-chip">Dedicated Hatchery Fleet</span>
     </div>
   </div>
 
-  <!-- ============================================================ 06 CUSTOMIZED COLD CHAIN SOLUTIONS ============================================================ -->
+  <!-- ============================================================ 05 CUSTOMIZED COLD CHAIN SOLUTIONS ============================================================ -->
   <div class="solution-detail reveal" style="border-bottom:none">
     <div class="solution-detail-head">
-      <span class="num-badge">06</span>
+      <span class="num-badge">05</span>
       <h2>Built Around Your Operations</h2>
-      <p>We understand that every business has unique logistics needs, which is why we offer fully customized cold chain solutions. Whether you require dedicated fleet options, specialized packaging, custom scheduling, or specific routing, we tailor our services to your operational requirements. We also support complete documentation compliance and offer flexible contract terms, ensuring a seamless and personalized logistics experience.</p>
+      <p>We understand that every business has unique logistics needs, which is why we offer fully customized cold chain solutions. Whether you require dedicated fleet options, specialized packaging, custom scheduling, or specific routing, we tailor our services to your operational requirements.</p>
     </div>
     <div class="applicable-tags">
       <span class="tag-chip">Dedicated Fleet Options</span>
@@ -222,41 +201,38 @@
 
 <!-- ============================================================ FOOTER ============================================================ -->
 <footer class="site-footer">
-  <div class="footer-top">
+  <div class="footer-3col">
     <div>
-      <div class="footer-brand">
+      <div class="f-brand">
         <img src="assets/img/logo.webp" alt="NiBha Logistics">
-        <span>NiBha</span>
       </div>
-      <p class="footer-tag">Pan-India temperature-controlled transport built on reliability, safety, and precision since 2019.</p>
+      <p class="f-blurb">NiBha Logistics Private Limited provides pan-India temperature-controlled transport built on reliability, safety, and precision since 2019.</p>
     </div>
-    <div class="recent-project">
-      <img src="assets/img/truck-2.jpeg" alt="Pharma cold chain rollout" loading="lazy">
-      <div>
-        <div class="rp-label">Recent Case Study</div>
-        <strong>Cold Chain Integrity At &minus;18&deg;C</strong>
-        <ul>
-          <li>Route: Multi-city pharma distribution</li>
-          <li>Result: Zero temperature deviation events</li>
-          <li>Outcome: Consistent on-time delivery</li>
-        </ul>
-      </div>
+    <div>
+      <h4>Main Menu</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="advanced-logistics.html">Advanced Logistics</a></li>
+        <li><a href="technology-section.html">Technology Section</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Other Links</h4>
+      <ul>
+        <li><a href="why-choose-nibha.html">Why Choose NiBha</a></li>
+        <li><a href="key-differences.html">Key Differences</a></li>
+        <li><a href="our-presence.html">Our Presence</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
     </div>
   </div>
-  <nav class="footer-nav-list" aria-label="Footer">
-    <a href="index.html" class="footer-nav-item"><span>Home</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="about.html" class="footer-nav-item"><span>About Us</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="solutions.html" class="footer-nav-item active"><span>Solutions</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="fleet.html" class="footer-nav-item"><span>Fleet</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="careers.html" class="footer-nav-item"><span>Careers</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="contact.html" class="footer-nav-item"><span>Contact</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  </nav>
   <div class="footer-bottom">
     <span>&copy; 2026 NiBha Logistics. All rights reserved.</span>
-    <div>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms &amp; Conditions</a>
-    </div>
   </div>
 </footer>
 

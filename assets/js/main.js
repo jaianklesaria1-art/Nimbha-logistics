@@ -103,6 +103,35 @@
     renderCities('all');
   }
 
+  var fleetModal = document.getElementById('fleetModal');
+  if (fleetModal){
+    var fmBody = document.getElementById('fleetModalBody');
+    var fmClose = fleetModal.querySelector('.fm-close');
+    var fmBackdrop = fleetModal.querySelector('.fm-backdrop');
+    function openFleetModal(tplId){
+      var tpl = document.getElementById(tplId);
+      if (!tpl) return;
+      fmBody.innerHTML = '';
+      fmBody.appendChild(tpl.content.cloneNode(true));
+      fleetModal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeFleetModal(){
+      fleetModal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.fleet-vcard').forEach(function(card){
+      card.addEventListener('click', function(){
+        openFleetModal(card.getAttribute('data-target'));
+      });
+    });
+    fmClose.addEventListener('click', closeFleetModal);
+    fmBackdrop.addEventListener('click', closeFleetModal);
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closeFleetModal();
+    });
+  }
+
   var slider = document.getElementById('heroSlider');
   if (slider){
     var slides = slider.querySelectorAll('.hero-slide');

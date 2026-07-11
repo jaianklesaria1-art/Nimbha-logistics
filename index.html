@@ -19,12 +19,17 @@
   <div class="nav-inner">
     <a href="index.html" class="brand" aria-label="NiBha Logistics home">
       <img src="assets/img/logo.webp" alt="NiBha Logistics">
-      <span>NiBha</span>
     </a>
     <nav class="primary" aria-label="Primary">
       <ul>
         <li><a href="index.html" class="nav-link active">Home</a></li>
-        <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+        <li class="nav-dropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Solutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown-panel">
+            <a href="advanced-logistics.html">Advanced Logistics</a>
+            <a href="technology-section.html">Technology Section</a>
+          </div>
+        </li>
         <li><a href="fleet.html" class="nav-link">Fleet</a></li>
         <li class="nav-dropdown">
           <button type="button" aria-haspopup="true" aria-expanded="false">More<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -36,7 +41,6 @@
             <a href="testimonials.html">Client Testimonials</a>
           </div>
         </li>
-        <li><a href="careers.html" class="nav-link">Careers</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
@@ -51,7 +55,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="solutions.html">Solutions</a></li>
+      <li><span class="more-label">Solutions</span></li>
+      <li><a href="advanced-logistics.html">Advanced Logistics</a></li>
+      <li><a href="technology-section.html">Technology Section</a></li>
       <li><a href="fleet.html">Fleet</a></li>
       <li><span class="more-label">More</span></li>
       <li><a href="about.html">About Us</a></li>
@@ -59,7 +65,6 @@
       <li><a href="key-differences.html">Key Differences</a></li>
       <li><a href="our-presence.html">Our Presence</a></li>
       <li><a href="testimonials.html">Client Testimonials</a></li>
-      <li><a href="careers.html">Careers</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="btn btn-black">Get In Touch</a>
@@ -85,7 +90,7 @@
         <h2>Cold Chain Logistics That <span class="hl">Move With Precision</span></h2>
         <p>Nationwide temperature-controlled transport for every business that values safety, reliability, and freshness.</p>
         <div class="cta-pair">
-          <a href="solutions.html" class="btn btn-accent">Explore Our Solutions</a>
+          <a href="advanced-logistics.html" class="btn btn-accent">Explore Our Solutions</a>
           <a href="fleet.html" class="btn btn-ghost">View Our Fleet</a>
         </div>
       </div>
@@ -218,38 +223,60 @@
     <span class="eyebrow" style="justify-content:center">Trusted By Industry Leaders</span>
     <h2>Partnering With Brands Across India</h2>
   </div>
-  <div class="partners-strip reveal">
-    <span class="partner-chip">Pharma Distribution Partner</span>
-    <span class="partner-chip">FMCG &amp; Retail Partner</span>
-    <span class="partner-chip">Dairy &amp; Frozen Foods Brand</span>
-    <span class="partner-chip">QSR Chain Partner</span>
-    <span class="partner-chip">Hatchery &amp; Poultry Group</span>
-    <span class="partner-chip">E-commerce Cold Chain Partner</span>
+  <div class="partners-slider reveal">
+    <div class="partner-tile"><span>Pharma Distribution Partner</span></div>
+    <div class="partner-tile"><span>FMCG &amp; Retail Partner</span></div>
+    <div class="partner-tile"><span>Dairy &amp; Frozen Foods Brand</span></div>
+    <div class="partner-tile"><span>QSR Chain Partner</span></div>
+    <div class="partner-tile"><span>Hatchery &amp; Poultry Group</span></div>
+    <div class="partner-tile"><span>E-commerce Cold Chain Partner</span></div>
   </div>
 </section>
 
-<!-- ============================================================ FLEET RANGE (distinct from hero) ============================================================ -->
+<!-- ============================================================ FLEET RANGE (hover cards) ============================================================ -->
 <section class="py section-glow" id="fleet-range">
-  <div class="fleet-range-wrap">
-    <div class="reveal">
-      <span class="eyebrow">Fleet Range</span>
-      <h2 style="font-size:clamp(24px,3.4vw,38px);margin-bottom:18px">Four Vehicle Classes, <span class="hl">One Standard Of Care</span></h2>
-      <p style="color:var(--muted);font-size:15px;line-height:1.75;margin-bottom:8px">From compact 20ft units for urban delivery to 32ft vehicles for high-volume distribution, every truck runs on Carrier AC systems with GPS tracking and real-time temperature monitoring.</p>
-      <div class="fleet-range-specs">
-        <div class="fleet-range-spec-row"><strong>20ft &mdash; 05mt</strong><span>280 ice cream crates &bull; 300 egg boxes</span></div>
-        <div class="fleet-range-spec-row"><strong>22ft &mdash; 07mt</strong><span>412 ice cream crates &bull; 462 egg boxes</span></div>
-        <div class="fleet-range-spec-row"><strong>24ft &mdash; 10mt</strong><span>612 ice cream crates &bull; 672 egg boxes</span></div>
-        <div class="fleet-range-spec-row"><strong>32ft &mdash; 16mt</strong><span>750 ice cream crates &bull; 960 egg boxes</span></div>
+  <div class="section-head reveal">
+    <span class="eyebrow">Fleet Range</span>
+    <h2>Six Vehicle Classes, <span class="hl">One Standard Of Care</span></h2>
+    <p>From compact 10ft units for last-mile delivery to 32ft vehicles for high-volume distribution, every truck runs on Carrier AC systems with GPS tracking and real-time temperature monitoring. Hover a card for specs.</p>
+  </div>
+  <div class="fleet-cards-grid reveal">
+    <a class="fleet-vcard" href="fleet.html">
+      <div class="fv-media"><img src="assets/img/truck-1.jpeg" alt="10ft refrigerated truck" loading="lazy"></div>
+      <span class="fv-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <div class="fv-body"><strong>10 ft &bull; 1 MT</strong><span>Compact last-mile delivery</span></div>
+      <div class="fv-hover">
+        <h4>10 ft &bull; 1 MT</h4>
+        <div class="fv-dim">Dimensions: 10 &times; 5.5 &times; 6 ft &bull; &minus;25&deg;C to +25&deg;C</div>
+        <div class="fv-ideal-label">Ideal For</div>
+        <ul><li>Pharmaceuticals</li><li>Dairy Products</li></ul>
       </div>
-      <a href="fleet.html" class="btn btn-black">See Full Fleet Specifications</a>
-    </div>
-    <div class="fleet-range-visual reveal">
-      <img src="assets/img/truck-1.jpeg" alt="NiBha Logistics refrigerated fleet" loading="lazy">
-      <div class="fleet-range-badge">
-        <strong>32ft</strong>
-        <span>Largest Class</span>
+    </a>
+    <a class="fleet-vcard" href="fleet.html">
+      <div class="fv-media"><img src="assets/img/hero-1.webp" alt="20ft refrigerated truck" loading="lazy"></div>
+      <span class="fv-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <div class="fv-body"><strong>20 ft &bull; 6 MT</strong><span>Multi-city standard</span></div>
+      <div class="fv-hover">
+        <h4>20 ft &bull; 6 MT</h4>
+        <div class="fv-dim">Dimensions: 20 &times; 7.5 &times; 7.5 ft &bull; &minus;25&deg;C to +25&deg;C</div>
+        <div class="fv-ideal-label">Ideal For</div>
+        <ul><li>Frozen Foods</li><li>Ice Cream</li><li>Meat &amp; Seafood</li></ul>
       </div>
-    </div>
+    </a>
+    <a class="fleet-vcard" href="fleet.html">
+      <div class="fv-media"><img src="assets/img/hero-4.webp" alt="32ft refrigerated truck" loading="lazy"></div>
+      <span class="fv-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <div class="fv-body"><strong>32 ft &bull; 22 MT</strong><span>Maximum payload</span></div>
+      <div class="fv-hover">
+        <h4>32 ft &bull; 22 MT</h4>
+        <div class="fv-dim">Dimensions: 32 &times; 8 &times; 8 ft &bull; &minus;25&deg;C to +25&deg;C</div>
+        <div class="fv-ideal-label">Ideal For</div>
+        <ul><li>Bulk Ice Cream</li><li>Hatching Eggs</li><li>Multi-City</li></ul>
+      </div>
+    </a>
+  </div>
+  <div style="margin-top:30px;text-align:center">
+    <a href="fleet.html" class="btn btn-black">See Full Fleet Specifications</a>
   </div>
 </section>
 
@@ -480,43 +507,38 @@
 
 <!-- ============================================================ FOOTER ============================================================ -->
 <footer class="site-footer">
-  <div class="footer-top">
+  <div class="footer-3col">
     <div>
-      <div class="footer-brand">
+      <div class="f-brand">
         <img src="assets/img/logo.webp" alt="NiBha Logistics">
-        <span>NiBha</span>
       </div>
-      <p class="footer-tag">Pan-India temperature-controlled transport built on reliability, safety, and precision since 2019.</p>
+      <p class="f-blurb">NiBha Logistics Private Limited provides pan-India temperature-controlled transport built on reliability, safety, and precision since 2019.</p>
     </div>
-    <div class="recent-project">
-      <img src="assets/img/truck-2.jpeg" alt="Pharma cold chain rollout" loading="lazy">
-      <div>
-        <div class="rp-label">Recent Case Study</div>
-        <strong>Cold Chain Integrity At &minus;18&deg;C</strong>
-        <ul>
-          <li>Route: Multi-city pharma distribution</li>
-          <li>Result: Zero temperature deviation events</li>
-          <li>Outcome: Consistent on-time delivery</li>
-        </ul>
-      </div>
+    <div>
+      <h4>Main Menu</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="advanced-logistics.html">Advanced Logistics</a></li>
+        <li><a href="technology-section.html">Technology Section</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Other Links</h4>
+      <ul>
+        <li><a href="why-choose-nibha.html">Why Choose NiBha</a></li>
+        <li><a href="key-differences.html">Key Differences</a></li>
+        <li><a href="our-presence.html">Our Presence</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
     </div>
   </div>
-  <nav class="footer-nav-list" aria-label="Footer">
-    <a href="index.html" class="footer-nav-item active"><span>Home</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="solutions.html" class="footer-nav-item"><span>Solutions</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="fleet.html" class="footer-nav-item"><span>Fleet</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="about.html" class="footer-nav-item"><span>About</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="contact.html" class="footer-nav-item"><span>Contact</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  </nav>
   <div class="footer-bottom">
     <span>&copy; 2026 NiBha Logistics. All rights reserved.</span>
-    <div>
-      <a href="why-choose-nibha.html">Why Choose NiBha</a>
-      <a href="key-differences.html">Key Differences</a>
-      <a href="our-presence.html">Our Presence</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="careers.html">Careers</a>
-    </div>
   </div>
 </footer>
 

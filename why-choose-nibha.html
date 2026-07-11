@@ -19,12 +19,17 @@
   <div class="nav-inner">
     <a href="index.html" class="brand" aria-label="NiBha Logistics home">
       <img src="assets/img/logo.webp" alt="NiBha Logistics">
-      <span>NiBha</span>
     </a>
     <nav class="primary" aria-label="Primary">
       <ul>
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+        <li class="nav-dropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Solutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown-panel">
+            <a href="advanced-logistics.html">Advanced Logistics</a>
+            <a href="technology-section.html">Technology Section</a>
+          </div>
+        </li>
         <li><a href="fleet.html" class="nav-link">Fleet</a></li>
         <li class="nav-dropdown open">
           <button type="button" aria-haspopup="true" aria-expanded="true">More<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -36,7 +41,6 @@
             <a href="testimonials.html">Client Testimonials</a>
           </div>
         </li>
-        <li><a href="careers.html" class="nav-link">Careers</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
@@ -51,7 +55,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="solutions.html">Solutions</a></li>
+      <li><span class="more-label">Solutions</span></li>
+      <li><a href="advanced-logistics.html">Advanced Logistics</a></li>
+      <li><a href="technology-section.html">Technology Section</a></li>
       <li><a href="fleet.html">Fleet</a></li>
       <li><span class="more-label">More</span></li>
       <li><a href="about.html">About Us</a></li>
@@ -59,7 +65,6 @@
       <li><a href="key-differences.html">Key Differences</a></li>
       <li><a href="our-presence.html">Our Presence</a></li>
       <li><a href="testimonials.html">Client Testimonials</a></li>
-      <li><a href="careers.html">Careers</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="btn btn-black">Get In Touch</a>
@@ -164,42 +169,38 @@
 
 <!-- ============================================================ FOOTER ============================================================ -->
 <footer class="site-footer">
-  <div class="footer-top">
+  <div class="footer-3col">
     <div>
-      <div class="footer-brand">
+      <div class="f-brand">
         <img src="assets/img/logo.webp" alt="NiBha Logistics">
-        <span>NiBha</span>
       </div>
-      <p class="footer-tag">Pan-India temperature-controlled transport built on reliability, safety, and precision since 2019.</p>
+      <p class="f-blurb">NiBha Logistics Private Limited provides pan-India temperature-controlled transport built on reliability, safety, and precision since 2019.</p>
     </div>
-    <div class="recent-project">
-      <img src="assets/img/truck-2.jpeg" alt="Pharma cold chain rollout" loading="lazy">
-      <div>
-        <div class="rp-label">Recent Case Study</div>
-        <strong>Cold Chain Integrity At &minus;18&deg;C</strong>
-        <ul>
-          <li>Route: Multi-city pharma distribution</li>
-          <li>Result: Zero temperature deviation events</li>
-          <li>Outcome: Consistent on-time delivery</li>
-        </ul>
-      </div>
+    <div>
+      <h4>Main Menu</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="advanced-logistics.html">Advanced Logistics</a></li>
+        <li><a href="technology-section.html">Technology Section</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Other Links</h4>
+      <ul>
+        <li><a href="why-choose-nibha.html">Why Choose NiBha</a></li>
+        <li><a href="key-differences.html">Key Differences</a></li>
+        <li><a href="our-presence.html">Our Presence</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
     </div>
   </div>
-  <nav class="footer-nav-list" aria-label="Footer">
-    <a href="index.html" class="footer-nav-item"><span>Home</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="solutions.html" class="footer-nav-item"><span>Solutions</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="fleet.html" class="footer-nav-item"><span>Fleet</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="about.html" class="footer-nav-item"><span>About</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="contact.html" class="footer-nav-item"><span>Contact</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  </nav>
   <div class="footer-bottom">
     <span>&copy; 2026 NiBha Logistics. All rights reserved.</span>
-    <div>
-      <a href="key-differences.html">Key Differences</a>
-      <a href="our-presence.html">Our Presence</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="careers.html">Careers</a>
-    </div>
   </div>
 </footer>
 
