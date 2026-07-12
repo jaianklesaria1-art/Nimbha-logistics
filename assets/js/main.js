@@ -72,16 +72,32 @@
 
   /* ---------- rotating earth globe (Our Presence, Home) ---------- */
   var EARTH_CITIES = [
-    { name: 'Delhi',     region: 'North',   lng: 77.21, lat: 28.61 },
-    { name: 'Jaipur',    region: 'North',   lng: 75.79, lat: 26.91 },
-    { name: 'Ahmedabad', region: 'West',    lng: 72.57, lat: 23.02 },
-    { name: 'Mumbai',    region: 'West',    lng: 72.88, lat: 19.08 },
-    { name: 'Hyderabad', region: 'South',   lng: 78.49, lat: 17.39 },
-    { name: 'Bengaluru', region: 'South',   lng: 77.59, lat: 12.97 },
-    { name: 'Chennai',   region: 'South',   lng: 80.27, lat: 13.08 },
-    { name: 'Kolkata',   region: 'East',    lng: 88.36, lat: 22.57 },
-    { name: 'Raipur',    region: 'East',    lng: 81.63, lat: 21.25 },
-    { name: 'Kashipur',  region: 'Special', lng: 78.96, lat: 29.21 }
+    { name: 'Delhi',      region: 'North',   lng: 77.21, lat: 28.61 },
+    { name: 'Lucknow',    region: 'North',   lng: 80.95, lat: 26.85 },
+    { name: 'Kanpur',     region: 'North',   lng: 80.35, lat: 26.45 },
+    { name: 'Haridwar',   region: 'North',   lng: 78.16, lat: 29.95 },
+    { name: 'Jaipur',     region: 'North',   lng: 75.79, lat: 26.91 },
+    { name: 'Ambala',     region: 'North',   lng: 76.78, lat: 30.38 },
+    { name: 'Mumbai',     region: 'West',    lng: 72.88, lat: 19.08 },
+    { name: 'Pune',       region: 'West',    lng: 73.86, lat: 18.52 },
+    { name: 'Ahmedabad',  region: 'West',    lng: 72.57, lat: 23.02 },
+    { name: 'Nashik',     region: 'West',    lng: 73.79, lat: 20.00 },
+    { name: 'Indore',     region: 'West',    lng: 75.86, lat: 22.72 },
+    { name: 'Goa',        region: 'West',    lng: 73.83, lat: 15.49 },
+    { name: 'Daman',      region: 'West',    lng: 72.83, lat: 20.42 },
+    { name: 'Bhiwandi',   region: 'West',    lng: 73.06, lat: 19.30 },
+    { name: 'Bengaluru',  region: 'South',   lng: 77.59, lat: 12.97 },
+    { name: 'Chennai',    region: 'South',   lng: 80.27, lat: 13.08 },
+    { name: 'Hyderabad',  region: 'South',   lng: 78.49, lat: 17.39 },
+    { name: 'Cochin',     region: 'South',   lng: 76.27, lat: 9.93 },
+    { name: 'Coimbatore', region: 'South',   lng: 76.96, lat: 11.02 },
+    { name: 'Kolkata',    region: 'East',    lng: 88.36, lat: 22.57 },
+    { name: 'Patna',      region: 'East',    lng: 85.14, lat: 25.59 },
+    { name: 'Ranchi',     region: 'East',    lng: 85.31, lat: 23.34 },
+    { name: 'Siliguri',   region: 'East',    lng: 88.43, lat: 26.73 },
+    { name: 'Guwahati',   region: 'East',    lng: 91.74, lat: 26.14 },
+    { name: 'Raipur',     region: 'East',    lng: 81.63, lat: 21.25 },
+    { name: 'Kashipur',   region: 'Special', lng: 78.96, lat: 29.21 }
   ];
   var EARTH_REGIONS = {
     all:     { lng: 80,   lat: 22,   zoom: 1.15 },
@@ -246,6 +262,7 @@
           }
         }
 
+        var labelRects = [];
         for (var c = 0; c < EARTH_CITIES.length; c++){
           var city = EARTH_CITIES[c];
           var pc = project(city.lng, city.lat);
@@ -262,8 +279,16 @@
           ctx.fill();
           if (active && view.zoom >= 1.5){
             ctx.font = '600 11px Inter, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,.92)';
-            ctx.fillText(city.name, pc[0] + 9, pc[1] + 4);
+            var lw = ctx.measureText(city.name).width;
+            var rect = { x: pc[0] + 9, y: pc[1] - 6, w: lw, h: 13 };
+            var collides = labelRects.some(function(o){
+              return rect.x < o.x + o.w && rect.x + rect.w > o.x && rect.y < o.y + o.h && rect.y + rect.h > o.y;
+            });
+            if (!collides){
+              ctx.fillStyle = 'rgba(255,255,255,.92)';
+              ctx.fillText(city.name, rect.x, pc[1] + 4);
+              labelRects.push(rect);
+            }
           }
         }
         ctx.restore();
