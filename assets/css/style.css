@@ -747,3 +747,69 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .testimonials-page-grid .testi-body p.q{min-height:0}
 @media (max-width:900px){.testimonials-page-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.testimonials-page-grid{grid-template-columns:1fr}}
+
+/* ================= BLUE GLOW BORDERS (site-wide boxes, chips, bubbles) =================
+   Constant soft blue glow ring on every card/pill; on hover a blue conic
+   highlight sweeps around the border (adapted from the GlowingShadow
+   component, recolored to the brand accent + frost). */
+@property --glow-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
+
+.trust-card,.industry-card,.diff-card,.solution-card,.fleet-spec-card,.service-row,
+.coverage-card,.mv-card,.leader-card,.value-card,.advantage-card,.bento-card,.why-card,
+.testi-card,.contact-detail-card,.role-card,.case-study-card,.fleet-vcard,.partner-tile,
+.industry-tile,.partner-chip,.tag-chip,.presence-city-list .city-chip,.cov-cities span{
+  position:relative;
+  box-shadow:0 0 0 1px rgba(42,86,214,.22),0 0 12px rgba(42,86,214,.14),0 4px 22px rgba(143,216,255,.1);
+}
+.trust-card::after,.industry-card::after,.diff-card::after,.solution-card::after,
+.fleet-spec-card::after,.service-row::after,.coverage-card::after,.mv-card::after,
+.leader-card::after,.value-card::after,.advantage-card::after,.bento-card::after,
+.why-card::after,.testi-card::after,.contact-detail-card::after,.role-card::after,
+.case-study-card::after,.fleet-vcard::after,.partner-tile::after,.industry-tile::after,
+.partner-chip::after,.tag-chip::after,.presence-city-list .city-chip::after,
+.cov-cities span::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.5px;
+  background:conic-gradient(from var(--glow-angle),
+    transparent 0turn,rgba(143,216,255,.95) .1turn,#2A56D6 .2turn,
+    rgba(42,86,214,.4) .28turn,transparent .38turn,transparent 1turn);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:1;
+}
+.trust-card:hover::after,.industry-card:hover::after,.diff-card:hover::after,
+.solution-card:hover::after,.fleet-spec-card:hover::after,.service-row:hover::after,
+.coverage-card:hover::after,.mv-card:hover::after,.leader-card:hover::after,
+.value-card:hover::after,.advantage-card:hover::after,.bento-card:hover::after,
+.why-card:hover::after,.testi-card:hover::after,.contact-detail-card:hover::after,
+.role-card:hover::after,.case-study-card:hover::after,.fleet-vcard:hover::after,
+.partner-tile:hover::after,.industry-tile:hover::after,.partner-chip:hover::after,
+.tag-chip:hover::after,.presence-city-list .city-chip:hover::after,
+.cov-cities span:hover::after{
+  opacity:1;animation:glow-sweep 2.4s linear infinite;
+}
+.trust-card:hover,.industry-card:hover,.diff-card:hover,.solution-card:hover,
+.fleet-spec-card:hover,.service-row:hover,.coverage-card:hover,.mv-card:hover,
+.leader-card:hover,.value-card:hover,.advantage-card:hover,.bento-card:hover,
+.why-card:hover,.testi-card:hover,.contact-detail-card:hover,.role-card:hover,
+.case-study-card:hover,.fleet-vcard:hover,.partner-tile:hover,.industry-tile:hover,
+.partner-chip:hover,.tag-chip:hover,.presence-city-list .city-chip:hover,
+.cov-cities span:hover{
+  box-shadow:0 0 0 1px rgba(42,86,214,.45),0 0 22px rgba(42,86,214,.3),0 0 46px rgba(143,216,255,.18);
+}
+@keyframes glow-sweep{to{--glow-angle:1turn}}
+
+/* circular bubbles that are absolutely positioned or too small for a ring
+   overlay get the shadow glow only */
+.icon-round,.s-icon,.tile-icon,.leader-avatar,.testi-avatar,.collage-stat{
+  box-shadow:0 0 0 1px rgba(42,86,214,.28),0 0 12px rgba(42,86,214,.2),0 0 24px rgba(143,216,255,.14);
+}
+@media (prefers-reduced-motion:reduce){
+  .trust-card::after,.industry-card::after,.diff-card::after,.solution-card::after,
+  .fleet-spec-card::after,.service-row::after,.coverage-card::after,.mv-card::after,
+  .leader-card::after,.value-card::after,.advantage-card::after,.bento-card::after,
+  .why-card::after,.testi-card::after,.contact-detail-card::after,.role-card::after,
+  .case-study-card::after,.fleet-vcard::after,.partner-tile::after,.industry-tile::after,
+  .partner-chip::after,.tag-chip::after,.presence-city-list .city-chip::after,
+  .cov-cities span::after{animation:none}
+}
