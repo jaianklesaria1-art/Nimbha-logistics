@@ -109,8 +109,8 @@
 
       function resize(){
         var box = canvas.parentElement.getBoundingClientRect();
-        W = Math.min(640, Math.max(300, box.width));
-        H = Math.min(500, Math.max(340, W * 0.82));
+        W = Math.min(500, Math.max(280, box.width));
+        H = Math.min(400, Math.max(300, W * 0.82));
         var dpr = window.devicePixelRatio || 1;
         canvas.width = W * dpr;
         canvas.height = H * dpr;
