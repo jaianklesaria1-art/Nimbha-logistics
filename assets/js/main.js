@@ -515,4 +515,31 @@
       mObserver.observe(masonry);
     }
   }
+
+  var jtl = document.getElementById('journeyTimeline');
+  if (jtl){
+    var jtlFill = document.getElementById('jtlRailFill');
+    var jtlEntries = jtl.querySelectorAll('.jtl-entry');
+    var jtlTicking = false;
+    function jtlUpdate(){
+      jtlTicking = false;
+      var rect = jtl.getBoundingClientRect();
+      var fill = Math.max(0, Math.min(rect.height, window.innerHeight * 0.55 - rect.top));
+      if (jtlFill) jtlFill.style.height = fill + 'px';
+      jtlEntries.forEach(function(en){
+        var node = en.querySelector('.jtl-node');
+        var nodeMid = en.offsetTop + (node ? node.offsetTop + 12 : 60);
+        en.classList.toggle('is-passed', nodeMid <= fill);
+      });
+    }
+    function jtlOnScroll(){
+      if (!jtlTicking){
+        jtlTicking = true;
+        requestAnimationFrame(jtlUpdate);
+      }
+    }
+    window.addEventListener('scroll', jtlOnScroll, { passive: true });
+    window.addEventListener('resize', jtlOnScroll);
+    jtlUpdate();
+  }
 })();
