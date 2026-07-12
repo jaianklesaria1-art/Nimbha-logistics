@@ -542,4 +542,186 @@
     window.addEventListener('resize', jtlOnScroll);
     jtlUpdate();
   }
+
+  /* ---------- quote connection map (Get A Quote panel) ---------- */
+  var quoteMap = document.querySelector('canvas.quote-map');
+  if (quoteMap && quoteMap.getContext){
+    (function(canvas){
+      var ctx = canvas.getContext('2d');
+      var BOX = { minLng: 63, maxLng: 99, minLat: 3, maxLat: 39 };
+      var W = 0, H = 0;
+      var mapDots = [];
+      var running = false;
+
+      var cityByName = {};
+      EARTH_CITIES.forEach(function(c){ cityByName[c.name] = c; });
+      var routes = [
+        ['Delhi', 'Mumbai'], ['Delhi', 'Kolkata'], ['Delhi', 'Bengaluru'],
+        ['Mumbai', 'Chennai'], ['Delhi', 'Guwahati'], ['Mumbai', 'Cochin']
+      ].map(function(p){ return [cityByName[p[0]], cityByName[p[1]]]; });
+
+      function resize(){
+        var box = canvas.parentElement.getBoundingClientRect();
+        W = box.width; H = box.height;
+        var dpr = window.devicePixelRatio || 1;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function px(lng, lat){
+        return [
+          (lng - BOX.minLng) / (BOX.maxLng - BOX.minLng) * W,
+          (BOX.maxLat - lat) / (BOX.maxLat - BOX.minLat) * H
+        ];
+      }
+
+      function inRing(x, y, ring){
+        var inside = false;
+        for (var i = 0, j = ring.length - 1; i < ring.length; j = i++){
+          var xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1];
+          if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+        }
+        return inside;
+      }
+
+      fetch('https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json')
+        .then(function(r){ if (!r.ok) throw new Error('land data'); return r.json(); })
+        .then(function(geo){
+          var polys = [];
+          geo.features.forEach(function(f){
+            var pp = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
+            pp.forEach(function(poly){
+              var o = poly[0];
+              var bb = [Infinity, -Infinity, Infinity, -Infinity];
+              for (var k = 0; k < o.length; k++){
+                if (o[k][0] < bb[0]) bb[0] = o[k][0];
+                if (o[k][0] > bb[1]) bb[1] = o[k][0];
+                if (o[k][1] < bb[2]) bb[2] = o[k][1];
+                if (o[k][1] > bb[3]) bb[3] = o[k][1];
+              }
+              if (bb[1] < BOX.minLng || bb[0] > BOX.maxLng || bb[3] < BOX.minLat || bb[2] > BOX.maxLat) return;
+              polys.push({ rings: poly, bb: bb });
+            });
+          });
+          var step = 0.55;
+          for (var lng = BOX.minLng; lng <= BOX.maxLng; lng += step){
+            for (var lat = BOX.minLat; lat <= BOX.maxLat; lat += step){
+              for (var p = 0; p < polys.length; p++){
+                var pl = polys[p];
+                if (lng < pl.bb[0] || lng > pl.bb[1] || lat < pl.bb[2] || lat > pl.bb[3]) continue;
+                if (inRing(lng, lat, pl.rings[0])){
+                  var hole = false;
+                  for (var h = 1; h < pl.rings.length; h++){
+                    if (inRing(lng, lat, pl.rings[h])){ hole = true; break; }
+                  }
+                  if (!hole){ mapDots.push([lng, lat]); break; }
+                }
+              }
+            }
+          }
+          if (reduceMotion) render(0);
+        })
+        .catch(function(){ /* routes and pulses still render without the dotted land */ });
+
+      var CYCLE = 9000, DRAW = 1100, STAG = 450, FADE = 700;
+      function easeOutCubic(k){ return 1 - Math.pow(1 - k, 3); }
+
+      function render(now){
+        ctx.clearRect(0, 0, W, H);
+
+        ctx.fillStyle = 'rgba(143,216,255,.28)';
+        for (var i = 0; i < mapDots.length; i++){
+          var d = px(mapDots[i][0], mapDots[i][1]);
+          ctx.beginPath();
+          ctx.arc(d[0], d[1], 1.4, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+
+        var t = now % CYCLE;
+        var alpha = reduceMotion ? 1 : (t > CYCLE - FADE ? (CYCLE - t) / FADE : 1);
+        var labeled = {};
+
+        routes.forEach(function(r, i){
+          if (!r[0] || !r[1]) return;
+          var start = px(r[0].lng, r[0].lat);
+          var end = px(r[1].lng, r[1].lat);
+          var prog = reduceMotion ? 1 : Math.max(0, Math.min(1, (t - i * STAG) / DRAW));
+
+          if (prog > 0){
+            var pEase = easeOutCubic(prog);
+            var mx = (start[0] + end[0]) / 2;
+            var my = Math.min(start[1], end[1]) - Math.abs(start[0] - end[0]) * 0.3 - 16;
+            var grad = ctx.createLinearGradient(start[0], start[1], end[0], end[1]);
+            grad.addColorStop(0, 'rgba(143,216,255,' + (.9 * alpha) + ')');
+            grad.addColorStop(1, 'rgba(90,140,255,' + (.9 * alpha) + ')');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 1.6;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(start[0], start[1]);
+            var SEGS = 40;
+            for (var s = 1; s <= SEGS; s++){
+              var u = Math.min(s / SEGS, pEase);
+              var a1 = (1 - u) * (1 - u), a2 = 2 * (1 - u) * u, a3 = u * u;
+              ctx.lineTo(a1 * start[0] + a2 * mx + a3 * end[0], a1 * start[1] + a2 * my + a3 * end[1]);
+              if (u >= pEase) break;
+            }
+            ctx.stroke();
+          }
+
+          [[r[0], start, 0], [r[1], end, 1]].forEach(function(e){
+            if (e[2] === 1 && prog < 1) return;
+            var pt = e[1];
+            ctx.beginPath();
+            ctx.arc(pt[0], pt[1], 2.2, 0, 2 * Math.PI);
+            ctx.fillStyle = 'rgba(143,216,255,' + alpha + ')';
+            ctx.fill();
+            if (!reduceMotion){
+              var pk = ((now / 1500) + i * 0.35 + e[2] * 0.5) % 1;
+              ctx.beginPath();
+              ctx.arc(pt[0], pt[1], 2 + pk * 7, 0, 2 * Math.PI);
+              ctx.strokeStyle = 'rgba(143,216,255,' + ((1 - pk) * 0.5 * alpha) + ')';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+            if (!labeled[e[0].name]){
+              labeled[e[0].name] = true;
+              ctx.font = '600 10px Inter, sans-serif';
+              ctx.fillStyle = 'rgba(255,255,255,' + (.72 * alpha) + ')';
+              ctx.fillText(e[0].name, pt[0] + 7, pt[1] - 5);
+            }
+          });
+        });
+      }
+
+      function frame(now){
+        if (!running) return;
+        render(now);
+        requestAnimationFrame(frame);
+      }
+
+      resize();
+      window.addEventListener('resize', function(){
+        resize();
+        if (reduceMotion) render(0);
+      });
+
+      if (reduceMotion){
+        render(0);
+      } else if ('IntersectionObserver' in window){
+        var qObs = new IntersectionObserver(function(entries){
+          if (entries[0].isIntersecting){
+            if (!running){ running = true; requestAnimationFrame(frame); }
+          } else {
+            running = false;
+          }
+        }, { threshold: 0.1 });
+        qObs.observe(canvas);
+      } else {
+        running = true;
+        requestAnimationFrame(frame);
+      }
+    })(quoteMap);
+  }
 })();
