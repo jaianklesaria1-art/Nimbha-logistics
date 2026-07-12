@@ -257,13 +257,19 @@ table.fleet-table tbody td{color:var(--muted);font-weight:600}
 @media (max-width:980px){.network-grid{grid-template-columns:1fr;gap:36px}.network-map{min-height:320px}}
 
 /* ================= PRESENCE REGION LISTS (About/Home) ================= */
-.presence-regions{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.region-col{background:var(--panel-light);border-radius:var(--radius-md);padding:22px}
-.region-col h4{font-family:'Archivo Black',sans-serif;font-size:13px;color:var(--accent);margin-bottom:14px}
-.region-col ul{display:flex;flex-direction:column;gap:7px}
-.region-col li{font-size:13px;color:var(--muted)}
-@media (max-width:980px){.presence-regions{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:640px){.presence-regions{grid-template-columns:1fr 1fr}}
+.coverage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1180px;margin:0 auto}
+.coverage-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:var(--radius-md);padding:26px;transition:border-color .25s ease,background-color .25s ease}
+.coverage-card:hover{background:rgba(255,255,255,.1);border-color:rgba(143,216,255,.45)}
+.cov-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.16)}
+.cov-region{display:flex;align-items:center;gap:10px;font-family:'Archivo Black',sans-serif;font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:#fff}
+.cov-region svg{width:17px;height:17px;color:#8FD8FF;flex-shrink:0}
+.cov-count{font-size:12px;font-weight:700;white-space:nowrap;color:#8FD8FF;background:rgba(143,216,255,.14);border:1px solid rgba(143,216,255,.3);padding:4px 12px;border-radius:999px}
+.cov-cities{display:flex;flex-wrap:wrap;gap:9px}
+.cov-cities span{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.1);font-size:13.5px;font-weight:600;color:#fff;transition:background-color .2s ease}
+.cov-cities span::before{content:'';width:5px;height:5px;border-radius:50%;background:#8FD8FF;flex-shrink:0}
+.cov-cities span:hover{background:var(--accent)}
+@media (max-width:980px){.coverage-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.coverage-grid{grid-template-columns:1fr}.coverage-card{padding:20px}}
 
 /* ================= PARTNERS STRIP ================= */
 .partners-strip{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
