@@ -584,9 +584,8 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .mobile-menu .more-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:14px 12px 4px}
 
 /* ================= INDUSTRIES FILMSTRIP (Home) ================= */
-.industries-strip{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.industries-strip::-webkit-scrollbar{height:6px}
-.industries-strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.industries-strip{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
+.industries-strip::-webkit-scrollbar{display:none}
 .industry-tile{position:relative;flex:0 0 250px;height:320px;border-radius:var(--radius-md);overflow:hidden;scroll-snap-align:start}
 .industry-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .industry-tile:hover img{transform:scale(1.07)}
