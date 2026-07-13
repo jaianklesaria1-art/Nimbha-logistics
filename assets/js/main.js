@@ -688,4 +688,56 @@
       }
     })(quoteMap);
   }
+
+  /* ---------- scroll effects: progress bar, sticky nav, hero parallax ---------- */
+  var siteNav = document.querySelector('header.site-nav');
+  var pageHeroImg = document.querySelector('.page-hero img');
+  var progressBar = document.createElement('div');
+  progressBar.id = 'scrollProgress';
+  document.body.appendChild(progressBar);
+  var fxTick = false;
+  function scrollFx(){
+    fxTick = false;
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (siteNav) siteNav.classList.toggle('scrolled', y > 10);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    if (pageHeroImg && !reduceMotion){
+      var r = pageHeroImg.parentElement.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight){
+        var off = (r.top + r.height / 2 - window.innerHeight / 2) * 0.1;
+        off = Math.max(-24, Math.min(24, off));
+        pageHeroImg.style.transform = 'scale(1.12) translateY(' + off.toFixed(1) + 'px)';
+      }
+    }
+  }
+  window.addEventListener('scroll', function(){
+    if (!fxTick){ fxTick = true; requestAnimationFrame(scrollFx); }
+  }, { passive: true });
+  scrollFx();
+
+  /* ---------- count-up stats when they enter the viewport ---------- */
+  if (!reduceMotion && 'IntersectionObserver' in window){
+    var counters = document.querySelectorAll('.stats-strip strong, .bento-card .metric');
+    var cObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        cObs.unobserve(en.target);
+        var m = en.target.textContent.trim().match(/^(\d+)(\+?)$/);
+        if (!m) return;
+        var target = parseInt(m[1], 10);
+        if (!target) return;
+        var suffix = m[2];
+        var t0 = null;
+        function tick(now){
+          if (t0 === null) t0 = now;
+          var k = Math.min(1, (now - t0) / 1300);
+          en.target.textContent = Math.round(target * (1 - Math.pow(1 - k, 3))) + suffix;
+          if (k < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: .5 });
+    counters.forEach(function(c){ cObs.observe(c); });
+  }
 })();
