@@ -732,6 +732,54 @@
   }, { passive: true });
   scrollFx();
 
+  /* ---------- masked word-by-word heading reveals ---------- */
+  if (!reduceMotion){
+    document.querySelectorAll('.section-head h2').forEach(function(h2){
+      var wi = 0;
+      function splitWords(el){
+        Array.prototype.slice.call(el.childNodes).forEach(function(node){
+          if (node.nodeType === 3){
+            var frag = document.createDocumentFragment();
+            node.textContent.split(/(\s+)/).forEach(function(part){
+              if (!part) return;
+              if (/^\s+$/.test(part)){
+                frag.appendChild(document.createTextNode(part));
+                return;
+              }
+              var w = document.createElement('span');
+              w.className = 'wrd';
+              var inner = document.createElement('span');
+              inner.className = 'wrd-i';
+              inner.textContent = part;
+              inner.style.transitionDelay = (wi * 0.055) + 's';
+              wi++;
+              w.appendChild(inner);
+              frag.appendChild(w);
+            });
+            el.replaceChild(frag, node);
+          } else if (node.nodeType === 1){
+            splitWords(node);
+          }
+        });
+      }
+      splitWords(h2);
+      h2.classList.add('split');
+    });
+  }
+
+  /* ---------- magnetic buttons (fine pointers only) ---------- */
+  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.btn').forEach(function(btn){
+      btn.addEventListener('mousemove', function(e){
+        var r = btn.getBoundingClientRect();
+        var dx = Math.max(-6, Math.min(6, (e.clientX - r.left - r.width / 2) * 0.15));
+        var dy = Math.max(-5, Math.min(5, (e.clientY - r.top - r.height / 2) * 0.25));
+        btn.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function(){ btn.style.transform = ''; });
+    });
+  }
+
   /* ---------- count-up stats when they enter the viewport ---------- */
   if (!reduceMotion && 'IntersectionObserver' in window){
     var counters = document.querySelectorAll('.stats-strip strong, .bento-card .metric');

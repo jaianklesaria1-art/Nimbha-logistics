@@ -243,7 +243,9 @@ table.fleet-table tbody td{color:var(--muted);font-weight:600}
 @media (max-width:760px){.fleet-specs-grid{grid-template-columns:1fr 1fr}}
 
 /* ================= PRESENCE NETWORK + SERVICES ================= */
-.network-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.network-grid{display:flex;flex-direction:column;align-items:center;gap:44px;max-width:860px;margin:0 auto;text-align:center}
+.network-grid > div{width:100%}
+.network-grid .presence-city-list{justify-content:center}
 .network-map{position:relative;background:var(--panel-light);border-radius:var(--radius-lg);padding:32px;min-height:420px;overflow:hidden}
 .network-map svg{width:100%;height:100%;position:absolute;inset:0}
 .network-pin{position:absolute;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
@@ -256,7 +258,7 @@ table.fleet-table tbody td{color:var(--muted);font-weight:600}
 .service-row .s-icon svg{width:20px;height:20px}
 .service-row strong{display:block;font-family:'Archivo Black',sans-serif;font-size:13.5px;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
 .service-row p{font-size:13.5px;color:var(--muted);line-height:1.6}
-@media (max-width:980px){.network-grid{grid-template-columns:1fr;gap:36px}.network-map{min-height:320px}}
+@media (max-width:980px){.network-grid{gap:36px}.network-map{min-height:320px}}
 
 /* ================= PRESENCE REGION LISTS (About/Home) ================= */
 .coverage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1180px;margin:0 auto}
@@ -893,3 +895,14 @@ header.site-nav.scrolled{box-shadow:0 10px 34px rgba(9,17,29,.1);padding-top:12p
 .footer-3col ul a{position:relative}
 .footer-3col ul a::after{content:'';position:absolute;left:0;bottom:-3px;height:1.5px;width:0;background:var(--frost);transition:width .25s ease}
 .footer-3col ul a:hover::after{width:100%}
+
+/* ================= PROFESSIONAL ANIMATION PASS 3 ================= */
+/* masked word-by-word heading reveal (words injected by main.js) */
+.wrd{display:inline-block;overflow:hidden;vertical-align:bottom}
+.wrd-i{display:inline-block;transform:translateY(115%);transition:transform .75s cubic-bezier(.215,.61,.355,1)}
+.section-head.reveal.in .wrd-i{transform:translateY(0)}
+.section-head.reveal > h2.split{opacity:1;transform:none;transition:none}
+
+/* cinematic curtain wipe on feature images */
+.reveal :is(.bento-photo,.case-study-media,.testi-media,.collage-a,.collage-b,.fleet-media,.process-media) img{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.77,0,.175,1) .2s}
+.reveal.in :is(.bento-photo,.case-study-media,.testi-media,.collage-a,.collage-b,.fleet-media,.process-media) img{clip-path:inset(0 0 0 0)}
