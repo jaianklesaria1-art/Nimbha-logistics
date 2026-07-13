@@ -858,3 +858,38 @@ header.site-nav.scrolled{box-shadow:0 10px 34px rgba(9,17,29,.1);padding-top:12p
 
 /* subpage hero images get parallax headroom (translate set by main.js) */
 .page-hero img{will-change:transform}
+
+/* ================= MICRO-INTERACTIONS PASS 2 ================= */
+/* section headings cascade in: eyebrow -> title -> paragraph */
+.section-head.reveal > *{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.215,.61,.355,1),transform .6s cubic-bezier(.215,.61,.355,1)}
+.section-head.reveal.in > *{opacity:1;transform:translateY(0)}
+.section-head.reveal.in > :nth-child(2){transition-delay:.12s}
+.section-head.reveal.in > :nth-child(3){transition-delay:.24s}
+
+/* sheen sweep across primary buttons on hover */
+.btn{position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:0;bottom:0;left:-80%;width:50%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover::before{left:130%}
+
+/* circular icons tilt when their card is hovered */
+.s-icon,.tile-icon,.b-ico,.icon-round{transition:transform .22s ease}
+:is(.industry-card,.solution-card,.service-row,.why-card,.value-card):hover .s-icon,
+.industry-tile:hover .tile-icon,
+.bento-card:hover .b-ico{transform:rotate(-8deg) scale(1.1)}
+
+/* active hero dot stretches */
+.hero-dot{transition:background-color .25s ease,width .25s ease}
+.hero-dot.is-active{width:52px}
+
+/* partners marquee fades out at the edges */
+.partners-marquee{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+
+/* journey timeline node fires a ring burst when passed */
+@keyframes nodePing{from{transform:scale(1);opacity:.7}to{transform:scale(2.4);opacity:0}}
+.jtl-node::before{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);opacity:0}
+.jtl-entry.is-passed .jtl-node::before{animation:nodePing .9s cubic-bezier(.215,.61,.355,1) 1}
+
+/* footer links: underline slides in */
+.footer-3col ul a{position:relative}
+.footer-3col ul a::after{content:'';position:absolute;left:0;bottom:-3px;height:1.5px;width:0;background:var(--frost);transition:width .25s ease}
+.footer-3col ul a:hover::after{width:100%}

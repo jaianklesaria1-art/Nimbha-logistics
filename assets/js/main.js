@@ -42,18 +42,34 @@
       var gap = 20;
       track.style.transform = 'translateX(-' + (index * (cardWidth + gap)) + 'px)';
     }
+    var testiTimer;
+    function testiAuto(){
+      clearInterval(testiTimer);
+      if (reduceMotion) return;
+      testiTimer = setInterval(function(){
+        var pv = perView();
+        var max = Math.max(0, cards.length - pv);
+        index = index >= max ? 0 : index + 1;
+        update();
+      }, 5500);
+    }
     if (next) next.addEventListener('click', function(){
       var pv = perView();
       var max = Math.max(0, cards.length - pv);
       index = Math.min(index + 1, max);
       update();
+      testiAuto();
     });
     if (prev) prev.addEventListener('click', function(){
       index = Math.max(index - 1, 0);
       update();
+      testiAuto();
     });
+    track.parentElement.addEventListener('mouseenter', function(){ clearInterval(testiTimer); });
+    track.parentElement.addEventListener('mouseleave', testiAuto);
     window.addEventListener('resize', update);
     update();
+    testiAuto();
   }
 
   document.querySelectorAll('.nav-dropdown').forEach(function(dd){
