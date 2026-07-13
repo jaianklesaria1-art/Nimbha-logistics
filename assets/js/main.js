@@ -461,6 +461,19 @@
     restart();
   }
 
+  var indStrip = document.querySelector('.industries-strip');
+  var indPrev = document.getElementById('indPrev');
+  var indNext = document.getElementById('indNext');
+  if (indStrip && indPrev && indNext){
+    var indStep = function(){ return 2 * (250 + 16); };
+    indPrev.addEventListener('click', function(){
+      indStrip.scrollBy({ left: -indStep(), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+    indNext.addEventListener('click', function(){
+      indStrip.scrollBy({ left: indStep(), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
   var jtl = document.getElementById('journeyTimeline');
   if (jtl){
     var jtlFill = document.getElementById('jtlRailFill');
