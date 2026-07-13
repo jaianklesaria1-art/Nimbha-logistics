@@ -461,61 +461,6 @@
     restart();
   }
 
-  var masonry = document.getElementById('industriesMasonry');
-  if (masonry){
-    var mItems = Array.prototype.slice.call(masonry.querySelectorAll('.m-item'));
-
-    function masonryColumns(){
-      if (window.matchMedia('(min-width:1400px)').matches) return 4;
-      if (window.matchMedia('(min-width:1000px)').matches) return 3;
-      if (window.matchMedia('(min-width:600px)').matches) return 2;
-      return 1;
-    }
-
-    function layoutMasonry(){
-      var width = masonry.clientWidth;
-      if (!width) return;
-      var cols = masonryColumns();
-      var colHeights = [];
-      for (var c = 0; c < cols; c++) colHeights.push(0);
-      var colWidth = width / cols;
-      mItems.forEach(function(item){
-        var col = colHeights.indexOf(Math.min.apply(null, colHeights));
-        var h = parseInt(item.getAttribute('data-h'), 10) || 320;
-        item.style.width = colWidth + 'px';
-        item.style.height = h + 'px';
-        item.style.transform = 'translate(' + (colWidth * col) + 'px,' + colHeights[col] + 'px)';
-        colHeights[col] += h;
-      });
-      masonry.style.height = Math.max.apply(null, colHeights) + 'px';
-    }
-
-    mItems.forEach(function(item, i){
-      item.querySelector('.m-entrance').style.transitionDelay = (i * 0.06) + 's';
-    });
-
-    layoutMasonry();
-    requestAnimationFrame(function(){ masonry.classList.add('layout-ready'); });
-
-    var mRaf;
-    window.addEventListener('resize', function(){
-      cancelAnimationFrame(mRaf);
-      mRaf = requestAnimationFrame(layoutMasonry);
-    });
-
-    if (reduceMotion || !('IntersectionObserver' in window)){
-      masonry.classList.add('in-view');
-    } else {
-      var mObserver = new IntersectionObserver(function(entries){
-        if (entries[0].isIntersecting){
-          masonry.classList.add('in-view');
-          mObserver.disconnect();
-        }
-      }, { threshold: 0.12 });
-      mObserver.observe(masonry);
-    }
-  }
-
   var jtl = document.getElementById('journeyTimeline');
   if (jtl){
     var jtlFill = document.getElementById('jtlRailFill');

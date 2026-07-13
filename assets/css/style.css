@@ -583,20 +583,13 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .nav-dropdown-panel a:hover{background:var(--panel-light);color:var(--accent)}
 .mobile-menu .more-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:14px 12px 4px}
 
-/* ================= INDUSTRIES MASONRY (Home) ================= */
-/* items are absolutely positioned by initIndustriesMasonry() in main.js */
-.industries-masonry{position:relative;width:100%}
-.industries-masonry .m-item{position:absolute;top:0;left:0;padding:6px;will-change:transform,width,height}
-.industries-masonry.layout-ready .m-item{transition:transform .6s cubic-bezier(.215,.61,.355,1),width .6s cubic-bezier(.215,.61,.355,1),height .6s cubic-bezier(.215,.61,.355,1)}
-.m-entrance{width:100%;height:100%;opacity:0;transform:translateY(100px);filter:blur(10px);transition:opacity .8s cubic-bezier(.215,.61,.355,1),transform .8s cubic-bezier(.215,.61,.355,1),filter .8s cubic-bezier(.215,.61,.355,1)}
-.industries-masonry.in-view .m-entrance{opacity:1;transform:translateY(0);filter:blur(0)}
-.industry-tile{position:relative;width:100%;height:100%;border-radius:10px;overflow:hidden;box-shadow:0 10px 50px -10px rgba(0,0,0,.2);cursor:pointer;transition:transform .3s cubic-bezier(.25,.46,.45,.94)}
-.industry-tile:hover{transform:scale(.95)}
-.industry-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (prefers-reduced-motion:reduce){
-  .m-entrance{transition:none;opacity:1;transform:none;filter:none}
-  .industries-masonry.layout-ready .m-item{transition:none}
-}
+/* ================= INDUSTRIES FILMSTRIP (Home) ================= */
+.industries-strip{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.industries-strip::-webkit-scrollbar{height:6px}
+.industries-strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.industry-tile{position:relative;flex:0 0 250px;height:320px;border-radius:var(--radius-md);overflow:hidden;scroll-snap-align:start}
+.industry-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.industry-tile:hover img{transform:scale(1.07)}
 .industry-tile .tile-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,17,29,0) 38%,rgba(9,17,29,.92) 100%)}
 .industry-tile .tile-icon{position:absolute;top:18px;left:18px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center}
 .industry-tile .tile-icon svg{width:17px;height:17px;color:var(--ink)}
@@ -604,7 +597,7 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .industry-tile h3{color:#fff;font-family:'Archivo Black',sans-serif;font-size:13.5px;text-transform:uppercase;margin-bottom:8px;line-height:1.25}
 .industry-tile p{color:rgba(255,255,255,.8);font-size:12px;line-height:1.6;max-height:0;opacity:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease}
 .industry-tile:hover p{max-height:110px;opacity:1}
-.industries-scroll-hint{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;margin-top:-6px;margin-bottom:22px}
+.industries-scroll-hint{font-size:12px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:-6px;margin-bottom:22px}
 .industries-scroll-hint svg{width:14px;height:14px}
 
 /* ================= ROTATING EARTH (Our Presence, Home) ================= */
