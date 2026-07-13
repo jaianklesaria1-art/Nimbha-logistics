@@ -169,7 +169,8 @@ nav.primary ul{display:flex;align-items:center;gap:30px}
 .py{padding:112px 40px}
 .py-sm{padding:72px 40px}
 @media (max-width:760px){.py{padding:64px 18px}.py-sm{padding:48px 18px}}
-.section-head{max-width:640px;margin-bottom:52px}
+.section-head{max-width:640px;margin-bottom:52px;margin-left:auto;margin-right:auto;text-align:center}
+.section-head .eyebrow{justify-content:center}
 .section-head.center{max-width:640px;margin-left:auto;margin-right:auto;text-align:center}
 .section-head h2{font-size:clamp(26px,3.4vw,40px)}
 .section-head h2 .hl{color:var(--accent)}
