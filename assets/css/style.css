@@ -837,15 +837,15 @@ header.site-nav{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.9
 header.site-nav.scrolled{box-shadow:0 10px 34px rgba(9,17,29,.1);padding-top:12px;padding-bottom:12px}
 
 /* staggered child reveals for the big card grids */
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal > *{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.215,.61,.355,1),transform .65s cubic-bezier(.215,.61,.355,1)}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > *{opacity:1;transform:translateY(0)}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > :nth-child(2){transition-delay:.08s}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > :nth-child(3){transition-delay:.16s}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > :nth-child(4){transition-delay:.24s}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > :nth-child(5){transition-delay:.32s}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > :nth-child(6){transition-delay:.4s}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > :nth-child(7){transition-delay:.48s}
-:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip).reveal.in > :nth-child(8){transition-delay:.56s}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal > *{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.215,.61,.355,1),transform .65s cubic-bezier(.215,.61,.355,1)}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > *{opacity:1;transform:translateY(0)}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > :nth-child(2){transition-delay:.08s}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > :nth-child(3){transition-delay:.16s}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > :nth-child(4){transition-delay:.24s}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > :nth-child(5){transition-delay:.32s}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > :nth-child(6){transition-delay:.4s}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > :nth-child(7){transition-delay:.48s}
+:is(.why-grid,.advantage-grid,.fleet-cards-grid,.coverage-grid,.bento,.testimonials-page-grid,.industries-strip,.values-grid,.mv-grid,.leadership-grid,.differentiators-grid,.contact-detail-grid,.fleet-specs-grid).reveal.in > :nth-child(8){transition-delay:.56s}
 
 /* slow ken-burns zoom on active hero banner slides */
 @keyframes kenburns{to{transform:scale(1.07)}}
@@ -906,3 +906,17 @@ header.site-nav.scrolled{box-shadow:0 10px 34px rgba(9,17,29,.1);padding-top:12p
 /* cinematic curtain wipe on feature images */
 .reveal :is(.bento-photo,.case-study-media,.testi-media,.collage-a,.collage-b,.fleet-media,.process-media) img{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.77,0,.175,1) .2s}
 .reveal.in :is(.bento-photo,.case-study-media,.testi-media,.collage-a,.collage-b,.fleet-media,.process-media) img{clip-path:inset(0 0 0 0)}
+
+/* staggered sub-points inside revealed solution details (Solutions pages) */
+.solution-detail.reveal .sub-points-grid > *{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.215,.61,.355,1),transform .6s cubic-bezier(.215,.61,.355,1)}
+.solution-detail.reveal.in .sub-points-grid > *{opacity:1;transform:translateY(0)}
+.solution-detail.reveal.in .sub-points-grid > :nth-child(2){transition-delay:.08s}
+.solution-detail.reveal.in .sub-points-grid > :nth-child(3){transition-delay:.16s}
+.solution-detail.reveal.in .sub-points-grid > :nth-child(4){transition-delay:.24s}
+/* tag chips pop in after the sub-points */
+.solution-detail.reveal .applicable-tags > *{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.solution-detail.reveal.in .applicable-tags > *{opacity:1;transform:translateY(0)}
+.solution-detail.reveal.in .applicable-tags > :nth-child(2){transition-delay:.06s}
+.solution-detail.reveal.in .applicable-tags > :nth-child(3){transition-delay:.12s}
+.solution-detail.reveal.in .applicable-tags > :nth-child(4){transition-delay:.18s}
+.solution-detail.reveal.in .applicable-tags > :nth-child(5){transition-delay:.24s}
