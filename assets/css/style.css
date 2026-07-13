@@ -737,13 +737,15 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .footer-3col a:hover{color:#fff}
 @media (max-width:760px){.footer-3col{grid-template-columns:1fr;gap:28px}}
 
-/* ================= PARTNERS SLIDER (image/logo tiles) ================= */
-.partners-slider{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.partners-slider::-webkit-scrollbar{height:6px}
-.partners-slider::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:3px}
-.partner-tile{flex:0 0 210px;height:104px;border-radius:var(--radius-md);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;scroll-snap-align:start;transition:background-color .2s ease}
-.partner-tile:hover{background:rgba(255,255,255,.11)}
-.partner-tile span{font-family:'Archivo Black',sans-serif;font-size:12.5px;text-transform:uppercase;color:rgba(255,255,255,.72);text-align:center;padding:0 16px;line-height:1.4}
+/* ================= PARTNERS MARQUEE (auto-scrolling logo strip) ================= */
+.partners-marquee{overflow:hidden;position:relative;padding:4px 0}
+.pm-track{display:flex;width:max-content;animation:pm-scroll var(--pm-dur,50s) linear infinite}
+.partners-marquee:hover .pm-track{animation-play-state:paused}
+.pm-seq{display:flex;align-items:stretch;gap:16px;padding-right:16px}
+.partner-tile{flex:0 0 auto;width:190px;height:104px;border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:center;padding:14px 18px}
+.partner-tile img{max-height:72px;max-width:154px;width:auto;height:auto;object-fit:contain}
+@keyframes pm-scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.pm-track{animation:none}}
 
 /* ================= TESTIMONIALS GRID (dedicated page) ================= */
 .testimonials-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}

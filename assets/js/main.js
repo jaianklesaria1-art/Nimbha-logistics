@@ -461,6 +461,12 @@
     restart();
   }
 
+  var pmTrack = document.querySelector('.partners-marquee .pm-track');
+  if (pmTrack){
+    var pmSeq = pmTrack.querySelector('.pm-seq');
+    if (pmSeq) pmTrack.style.setProperty('--pm-dur', Math.round(pmSeq.scrollWidth / 55) + 's');
+  }
+
   var indStrip = document.querySelector('.industries-strip');
   var indPrev = document.getElementById('indPrev');
   var indNext = document.getElementById('indNext');
