@@ -388,17 +388,20 @@ table.fleet-table tbody td{color:var(--muted);font-weight:600}
 .bento-5{background:var(--accent);color:#fff}
 .bento-photo{border-radius:var(--radius-md);overflow:hidden}
 .bento-photo img{width:100%;height:100%;object-fit:cover}
-.bento-right-col{display:flex;flex-direction:column;gap:16px}
+.bento-right-col{display:flex;flex-direction:column;gap:16px;grid-column:3;grid-row:1/3}
 .bento-right-col .bento-photo{flex:1.4;min-height:160px}
 .bento-right-col .bento-5{flex:1}
+.bento-card .b-ico{width:42px;height:42px;border-radius:50%;background:rgba(42,86,214,.1);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.bento-1 .b-ico,.bento-3 .b-ico,.bento-5 .b-ico{background:rgba(255,255,255,.12);color:#8FD8FF}
+.bento-card .b-ico svg{width:19px;height:19px}
 .bento-card .metric{font-family:'Archivo Black',sans-serif;font-size:clamp(26px,2.6vw,34px);margin-bottom:10px;display:block}
 .bento-card .metric-label{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;padding-top:12px;border-top:1px solid rgba(0,0,0,.1)}
 .bento-1 .metric-label,.bento-3 .metric-label,.bento-5 .metric-label{color:rgba(255,255,255,.7);border-top-color:rgba(255,255,255,.2)}
 .bento-4 h4{font-family:'Archivo Black',sans-serif;font-size:14.5px;text-transform:uppercase;margin-bottom:8px}
 .bento-4 p{font-size:12.5px;color:var(--muted);line-height:1.6}
 .bento-4 .by{display:block;margin-top:10px;font-size:11.5px;font-weight:700;color:var(--ink)}
-@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.bento-right-col{grid-column:1/3;flex-direction:row}}
-@media (max-width:560px){.bento{grid-template-columns:1fr}.bento-right-col{grid-column:auto;flex-direction:column}}
+@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.bento-right-col{grid-column:1/3;grid-row:auto;flex-direction:row}}
+@media (max-width:560px){.bento{grid-template-columns:1fr}.bento-right-col{grid-column:auto;grid-row:auto;flex-direction:column}}
 
 /* ================= WHY CHOOSE NIBHA (8-item grid, Home/Careers) ================= */
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
