@@ -685,6 +685,9 @@ footer.site-footer{background:var(--ink);color:#fff;padding:56px 40px 34px}
 .navy-band .stats-strip{border-top-color:rgba(255,255,255,.18)}
 .navy-band .stats-strip strong{color:var(--frost)}
 .navy-band .stats-strip span{color:rgba(255,255,255,.62)}
+/* light-background cards keep their own text colors inside navy bands */
+.navy-band .advantage-card h4{color:var(--accent)}
+.navy-band .advantage-card p{color:var(--muted)}
 
 /* ================= FLEET VEHICLE CARDS (interactive, hover + click modal) ================= */
 .fleet-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
