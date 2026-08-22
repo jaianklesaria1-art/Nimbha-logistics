@@ -165,14 +165,16 @@ nav.primary ul{display:flex;align-items:center;gap:30px}
   .hero-slider{min-height:400px}
   .slide-content{padding:24px 20px 58px}
 }
+.hero-mobile-cta{display:none}
 @media (max-width:600px){
-  .hero-slider{min-height:360px}
+  .hero-slider{min-height:300px}
   .hero-slider-nav{bottom:16px;right:16px}
   .hero-dot{width:22px}
-  .slide-content{padding:0 20px 28px}
-  .slide-content .eyebrow,.slide-content h2,.slide-content p{display:none}
-  .cta-pair{flex-direction:column;align-items:stretch;gap:12px}
-  .cta-pair .btn{width:100%;font-size:13px;padding:15px 20px}
+  .slide-content{display:none}
+  .hero-mobile-cta{display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:20px 20px 0}
+  .hero-mobile-cta .btn{width:100%;font-size:13px;padding:15px 20px}
+  .hero-mobile-cta .btn-ghost{color:var(--ink);border-color:var(--line)}
+  .hero-mobile-cta .btn-ghost:hover{background:var(--panel-light)}
 }
 
 /* ================= generic ================= */
