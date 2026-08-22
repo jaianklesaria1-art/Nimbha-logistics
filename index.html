@@ -74,11 +74,9 @@
 <!-- ============================================================ HERO SLIDER ============================================================ -->
 <section class="hero">
   <div class="hero-slider" id="heroSlider">
-    <!-- Slide 1: hero video -->
-    <div class="hero-slide slide-video is-active">
-      <video autoplay muted loop playsinline poster="assets/img/hero-4.webp">
-        <source src="assets/video/hero-bridge-truck.mp4" type="video/mp4">
-      </video>
+    <!-- Slide 1: aerial coastal highway hero image -->
+    <div class="hero-slide slide-image is-active">
+      <img class="slide-bg" src="assets/img/hero-aerial-highway.png" alt="NiBha Logistics truck on a coastal highway, aerial view" loading="eager">
       <div class="slide-scrim"></div>
       <div class="slide-content">
         <span class="eyebrow">Pan-India Cold Chain</span>
@@ -91,17 +89,24 @@
       </div>
     </div>
 
-    <!-- Slide 2: client banner artwork -->
+    <!-- Slide 2: hero video -->
+    <div class="hero-slide slide-banner-full">
+      <video muted loop playsinline poster="assets/img/hero-4.webp">
+        <source src="assets/video/hero-bridge-truck.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Slide 3: client banner artwork -->
     <div class="hero-slide slide-banner-full">
       <img class="slide-bg" src="assets/img/nibha-banner-1.png" alt="NiBha Logistics — Creating Sustainable Value Chains. End-to-end cold chain logistics solutions." loading="lazy">
     </div>
 
-    <!-- Slide 3: client banner artwork (crop biased upward so the logo stays visible) -->
+    <!-- Slide 4: client banner artwork (crop biased upward so the logo stays visible) -->
     <div class="hero-slide slide-banner-full slide-focus-top">
       <img class="slide-bg" src="assets/img/nibha-banner-2.png" alt="NiBha Logistics — Driven by Commitment, Defined by Reliability. Safe, reliable, sustainable, always." loading="lazy">
     </div>
 
-    <!-- Slide 4: client banner artwork -->
+    <!-- Slide 5: client banner artwork -->
     <div class="hero-slide slide-banner-full">
       <img class="slide-bg" src="assets/img/nibha-banner-3.png" alt="NiBha Logistics — Moving Today, Delivering Tomorrow. End-to-end cold chain logistics solutions." loading="lazy">
     </div>
@@ -111,6 +116,7 @@
       <button class="hero-dot" aria-label="Slide 2"></button>
       <button class="hero-dot" aria-label="Slide 3"></button>
       <button class="hero-dot" aria-label="Slide 4"></button>
+      <button class="hero-dot" aria-label="Slide 5"></button>
     </div>
   </div>
 </section>
@@ -121,10 +127,6 @@
     <span class="eyebrow" style="justify-content:center">Industries We Serve</span>
     <h2>Specialized Solutions Across <span class="hl">Diverse Industries</span></h2>
     <p>Different industries have different needs. Our cold chain expertise spans multiple sectors, each with unique temperature requirements, handling protocols, and regulatory compliance standards.</p>
-  </div>
-  <div class="industries-scroll-hint reveal">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    Scroll to explore, hover a card for details
   </div>
   <div class="industries-strip reveal">
     <div class="industry-tile">
@@ -200,10 +202,6 @@
       </div>
     </div>
   </div>
-  <div class="testi-nav">
-    <button id="indPrev" class="prev" aria-label="Previous industries"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
-    <button id="indNext" class="next" aria-label="Next industries"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
-  </div>
   <div class="stats-strip reveal">
     <div class="stat"><strong>7+</strong><span>Years Operations Experience</span></div>
     <div class="stat"><strong>14+</strong><span>Years Combined Directors' Expertise</span></div>
@@ -218,92 +216,70 @@
     <span class="eyebrow" style="justify-content:center">Trusted By Industry Leaders</span>
     <h2>Partnering With Brands Across India</h2>
   </div>
-  <div class="partners-marquee reveal" id="partnersMarquee" aria-label="NiBha Logistics partner brands">
-    <div class="pm-track">
-      <div class="pm-seq">
-        <div class="partner-tile"><img src="assets/img/partners/awl.webp" alt="AWL" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/amalgam-foods.webp" alt="Amalgam Foods" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/goeld.webp" alt="Goeld" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/jasper.webp" alt="Jasper" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/jorss.webp" alt="Jorss" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/tokai-imperial-rubber.webp" alt="Tokai Imperial Rubber" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/skm-porna-chicken.webp" alt="SKM Porna Chicken" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/shanthi-feeds.webp" alt="Shanthi Feeds" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/bajrang-agro.webp" alt="Bajrang Agro" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/abis-dairy.webp" alt="ABIS Dairy" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/hyfun-foods.webp" alt="HyFun Foods" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/2m-cocoa.webp" alt="2M Cocoa" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/wingreens.webp" alt="Wingreens" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/khadkeshwara.webp" alt="Khadkeshwara" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/suguna-foods.webp" alt="Suguna Foods" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/the-green-earth.webp" alt="The Green Earth" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/earth-fresh-foods.webp" alt="Earth Fresh Foods" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/ibg.webp" alt="IBG" loading="lazy"></div>
-      </div>
-      <div class="pm-seq" aria-hidden="true">
-        <div class="partner-tile"><img src="assets/img/partners/awl.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/amalgam-foods.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/goeld.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/jasper.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/jorss.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/tokai-imperial-rubber.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/skm-porna-chicken.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/shanthi-feeds.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/bajrang-agro.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/abis-dairy.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/hyfun-foods.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/2m-cocoa.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/wingreens.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/khadkeshwara.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/suguna-foods.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/the-green-earth.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/earth-fresh-foods.webp" alt="" loading="lazy"></div>
-        <div class="partner-tile"><img src="assets/img/partners/ibg.webp" alt="" loading="lazy"></div>
-      </div>
-    </div>
+  <div class="logo-cloud reveal" aria-label="NiBha Logistics partner brands">
+    <div class="logo-cloud-tile"><img src="assets/img/partners/awl.webp" alt="AWL" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/amalgam-foods.webp" alt="Amalgam Foods" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/goeld.webp" alt="Goeld" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/jasper.webp" alt="Jasper" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/jorss.webp" alt="Jorss" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/tokai-imperial-rubber.webp" alt="Tokai Imperial Rubber" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/skm-porna-chicken.webp" alt="SKM Porna Chicken" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/shanthi-feeds.webp" alt="Shanthi Feeds" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/bajrang-agro.webp" alt="Bajrang Agro" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/abis-dairy.webp" alt="ABIS Dairy" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/hyfun-foods.webp" alt="HyFun Foods" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/2m-cocoa.webp" alt="2M Cocoa" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/wingreens.webp" alt="Wingreens" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/khadkeshwara.webp" alt="Khadkeshwara" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/suguna-foods.webp" alt="Suguna Foods" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/the-green-earth.webp" alt="The Green Earth" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/earth-fresh-foods.webp" alt="Earth Fresh Foods" loading="lazy"></div>
+    <div class="logo-cloud-tile"><img src="assets/img/partners/ibg.webp" alt="IBG" loading="lazy"></div>
   </div>
 </section>
 
 <!-- ============================================================ FLEET RANGE (hover cards) ============================================================ -->
 <section class="py section-glow" id="fleet-range">
-  <div class="section-head reveal">
-    <span class="eyebrow">Fleet Range</span>
-    <h2>Six Vehicle Classes, <span class="hl">One Standard Of Care</span></h2>
-    <p>From compact 10ft units for last-mile delivery to 32ft vehicles for high-volume distribution, every truck runs on Carrier AC systems with GPS tracking and real-time temperature monitoring. Hover a card for specs.</p>
+  <div class="fleet-range-head reveal">
+    <h2 class="frh-title">Fleet <span class="frh-light">Range</span></h2>
+    <p class="frh-tag">Let&rsquo;s get things moving!</p>
   </div>
-  <div class="fleet-cards-grid reveal">
-    <a class="fleet-vcard" href="fleet.html">
-      <div class="fv-media"><img src="assets/img/truck-1.jpeg" alt="10ft refrigerated truck" loading="lazy"></div>
-      <span class="fv-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      <div class="fv-body"><strong>10 ft &bull; 1 MT</strong><span>Compact last-mile delivery</span></div>
-      <div class="fv-hover">
-        <h4>10 ft &bull; 1 MT</h4>
-        <div class="fv-dim">Dimensions: 10 &times; 5.5 &times; 6 ft &bull; &minus;25&deg;C to +25&deg;C</div>
-        <div class="fv-ideal-label">Ideal For</div>
-        <ul><li>Pharmaceuticals</li><li>Dairy Products</li></ul>
-      </div>
+  <div class="fleet-spec-strip reveal">
+    <a class="fss-col" href="fleet.html">
+      <span class="fss-num">10</span>
+      <span class="fss-unit">Feet</span>
+      <span class="fss-stat"><span>MT Payload</span><strong>1</strong></span>
+      <span class="fss-dim">10 &times; 5.5 &times; 6</span>
     </a>
-    <a class="fleet-vcard" href="fleet.html">
-      <div class="fv-media"><img src="assets/img/hero-1.webp" alt="20ft refrigerated truck" loading="lazy"></div>
-      <span class="fv-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      <div class="fv-body"><strong>20 ft &bull; 6 MT</strong><span>Multi-city standard</span></div>
-      <div class="fv-hover">
-        <h4>20 ft &bull; 6 MT</h4>
-        <div class="fv-dim">Dimensions: 20 &times; 7.5 &times; 7.5 ft &bull; &minus;25&deg;C to +25&deg;C</div>
-        <div class="fv-ideal-label">Ideal For</div>
-        <ul><li>Frozen Foods</li><li>Ice Cream</li><li>Meat &amp; Seafood</li></ul>
-      </div>
+    <a class="fss-col" href="fleet.html">
+      <span class="fss-num">14</span>
+      <span class="fss-unit">Feet</span>
+      <span class="fss-stat"><span>MT Payload</span><strong>3</strong></span>
+      <span class="fss-dim">14 &times; 6 &times; 7</span>
     </a>
-    <a class="fleet-vcard" href="fleet.html">
-      <div class="fv-media"><img src="assets/img/hero-4.webp" alt="32ft refrigerated truck" loading="lazy"></div>
-      <span class="fv-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      <div class="fv-body"><strong>32 ft &bull; 22 MT</strong><span>Maximum payload</span></div>
-      <div class="fv-hover">
-        <h4>32 ft &bull; 22 MT</h4>
-        <div class="fv-dim">Dimensions: 32 &times; 8 &times; 8 ft &bull; &minus;25&deg;C to +25&deg;C</div>
-        <div class="fv-ideal-label">Ideal For</div>
-        <ul><li>Bulk Ice Cream</li><li>Hatching Eggs</li><li>Multi-City</li></ul>
-      </div>
+    <a class="fss-col" href="fleet.html">
+      <span class="fss-num">20</span>
+      <span class="fss-unit">Feet</span>
+      <span class="fss-stat"><span>MT Payload</span><strong>6</strong></span>
+      <span class="fss-dim">20 &times; 7.5 &times; 7.5</span>
+    </a>
+    <a class="fss-col" href="fleet.html">
+      <span class="fss-num">24</span>
+      <span class="fss-unit">Feet</span>
+      <span class="fss-stat"><span>MT Payload</span><strong>9</strong></span>
+      <span class="fss-dim">24 &times; 7.9 &times; 8</span>
+    </a>
+    <a class="fss-col" href="fleet.html">
+      <span class="fss-num">32</span>
+      <span class="fss-unit">Feet</span>
+      <span class="fss-stat"><span>MT Payload</span><strong>16</strong></span>
+      <span class="fss-dim">32 &times; 8 &times; 8</span>
+    </a>
+    <a class="fss-col" href="fleet.html">
+      <span class="fss-num">32</span>
+      <span class="fss-unit">Feet</span>
+      <span class="fss-stat"><span>MT Payload</span><strong>22</strong></span>
+      <span class="fss-dim">32 &times; 8 &times; 8</span>
     </a>
   </div>
   <div style="margin-top:30px;text-align:center">
