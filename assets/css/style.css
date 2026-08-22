@@ -166,13 +166,11 @@ nav.primary ul{display:flex;align-items:center;gap:30px}
   .slide-content{padding:24px 20px 58px}
 }
 @media (max-width:600px){
-  .hero-slider{min-height:420px}
+  .hero-slider{min-height:360px}
   .hero-slider-nav{bottom:16px;right:16px}
   .hero-dot{width:22px}
-  .slide-content{padding:24px 20px 64px}
-  .slide-content .eyebrow{font-size:12px}
-  .slide-content h2{font-size:28px;margin-bottom:12px}
-  .slide-content p{font-size:14.5px;margin-bottom:22px;line-height:1.6}
+  .slide-content{padding:0 20px 28px}
+  .slide-content .eyebrow,.slide-content h2,.slide-content p{display:none}
   .cta-pair{flex-direction:column;align-items:stretch;gap:12px}
   .cta-pair .btn{width:100%;font-size:13px;padding:15px 20px}
 }
